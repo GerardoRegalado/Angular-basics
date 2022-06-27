@@ -1,0 +1,36 @@
+<p>listado de heroes!</p>
+
+
+<!-- ! clase de *NgFor -->
+
+<!-- * si pusieramos en practica lo que sabemos ahora, podriamos traernos los datos -->
+<!-- *del array de heroes de la siguiente manera: -->
+<ol>
+  <li>{{heroes[0]}}</li>
+  <li>{{heroes[1]}}</li>
+  <li>{{heroes[2]}}</li>
+</ol>
+
+<!-- * y se mostrarian sin problema, pero que que pasa si es un array con muchisimos datos -->
+<!-- * seria muy dificil hacerlo so, necesitamos algo que nos haga la chamba mas facil y eso es el NGfor -->
+
+
+<!-- ? primero tenemos que refactorizar el codigo, la buena practica es la siquiente -->
+
+<ul>
+<!-- * 👇🏻 este es el ngFor y basicamente sirve como un bucle for, en JS se le conoce como forOf, remember -->
+  <li *ngFor="let heroe of heroes;let i = index">
+    {{i + 1}} - {{heroe}}
+  </li>
+</ul>
+
+<button (click)="borrarHeroe()">
+    Borrar heroe
+</button>
+
+<div *ngIf="heroe_borrado !== ''">
+  <h2>Heroe borrado</h2>
+  <span>{{heroe_borrado}}</span>
+</div>
+
+<!-- *  De esta manera, el ngfor recorrera todo el array "heroes" y traera a cada 'heroe' a mostrarse -->
